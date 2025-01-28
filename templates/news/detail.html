@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Yangilik Detali{% endblock %}
+
+{% block content %}
+    <article class="news-detail">
+        <h2>{{ news.title }}</h2>
+        <p class="news-meta">Sana: {{ news.created_at }} | Muallif: {{ news.author }}</p>
+        <!-- Optional: You can add an image if required -->
+        <!-- <img src="{{ news.image.url }}" alt="Yangilik rasmi" class="news-image"> -->
+        <div class="news-content">
+            <p><strong>Kategoriya:</strong> {{ news.category }}</p>
+            <p><strong>Qisqacha malumot:</strong> {{ news.short_content }}</p>
+            <p><strong>Batafsil:</strong> {{ news.long_content }}</p>
+        </div>
+    </article>
+{% endblock %}

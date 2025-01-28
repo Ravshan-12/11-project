@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Yangiliklar Sayti{% endblock %}
+
+{% block content %}
+    <h2 id="category-title">
+        {% if category == 'mahalliy' %}
+            <h2>Mahalliy Yangiliklar</h2>
+        {% elif category == 'jahon' %}
+            <h2>Jahon Yangiliklar</h2>
+        {% elif category == 'sport' %}
+            <h2>Sport Yangiliklar</h2>
+        {% else %}
+            <h2>Texnologiya Yangiliklar</h2>
+        {% endif %}
+    </h2>
+        <div id="news-list">
+            {% for new in news %}
+                <div class="news-item">
+                    {% if category == 'mahalliy' %}
+                        <h2>{{ new.title }}</h2>
+                        <p>{{ new.short_content }}</p>
+                        <a href="{{ new.get_detail_url }}" class="read-more">Batafsil</a>
+                    {% elif category == 'jahon' %}
+                        <h2>{{ new.title }}</h2>
+                        <p>{{ new.short_content }}</p>
+                        <a href="{{ new.get_detail_url }}" class="read-more">Batafsil</a>
+                    {% elif category == 'sport' %}
+                        <h2>{{ new.title }}</h2>
+                        <p>{{ new.short_content }}</p>
+                        <a href="{{ new.get_detail_url }}" class="read-more">Batafsil</a>
+                    {% else %}
+                        <h2>{{ new.title }}</h2>
+                        <p>{{ new.short_content }}</p>
+                        <a href="{{ new.get_detail_url }}" class="read-more">Batafsil</a>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <h2>Hozircha yangilik yo'q</h2>
+            {% endfor %}
+        </div>
+{% endblock %}
